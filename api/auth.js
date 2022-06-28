@@ -26,8 +26,6 @@ var stateKey = 'spotify_auth_state';
 };
 
 export default async function handler(req, res) {
-  console.log('authorizing')
-
   var state = generateRandomString(16);
   const cookieString = ""
   const stateCookie = `${stateKey}=${state}${cookieString}`;
