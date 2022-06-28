@@ -3,11 +3,11 @@ require('dotenv').config();
 const {
   CLIENT_ID, 
   CLIENT_SECRET,
-  // REDIRECT_URI
+  REDIRECT_URI
 } = process.env
 
 
-const REDIRECT_URI = 'http://localhost:3000/api/callback'
+// const REDIRECT_URI = 'http://localhost:3000/api/callback'
 const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 var stateKey = 'spotify_auth_state';
 
