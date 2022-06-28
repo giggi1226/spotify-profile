@@ -2,16 +2,18 @@ require('dotenv').config();
 
 const {
   CLIENT_ID, 
-  CLIENT_SECRET
+  CLIENT_SECRET,
+  REDIRECT_URI,
+  BASE
 } = process.env
 
 var request = require('request');
 
 
-const REDIRECT_URI = 'http://localhost:3000/api/callback'
+// const REDIRECT_URI = 'http://localhost:3000/api/callback'
 const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 var stateKey = 'spotify_auth_state';
-var front_end = "http://localhost:3000";
+// var front_end = "http://localhost:3000";
 
 export default async function handler(req, res) {
 
@@ -50,7 +52,7 @@ export default async function handler(req, res) {
           access_token: access_token,
           refresh_token: refresh_token
         });
-        res.redirect(`${front_end}/?${params.toString()}`);
+        res.redirect(`${BASE}/?${params.toString()}`);
       } else {
         const params = new URLSearchParams({
           error: 'invalid_token'

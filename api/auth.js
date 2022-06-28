@@ -2,7 +2,8 @@ require('dotenv').config();
 
 const {
   CLIENT_ID, 
-  CLIENT_SECRET
+  CLIENT_SECRET,
+  // REDIRECT_URI
 } = process.env
 
 
