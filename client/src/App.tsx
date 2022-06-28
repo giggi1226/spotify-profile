@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import { useParams, useSearchParams } from 'react-router-dom'
 import Login from './pages/Login/Login';
 import Profile from './pages/Profile/Profile';
@@ -12,13 +12,19 @@ function App() {
 
   useEffect(() => {
     if(!accessToken) {
-      console.log('here')
       setAccessToken(params.get('access_token') || '')
-      setAccessToken(params.get('refresh_token') || '')
+      setRefreshToken(params.get('refresh_token') || '')
     }
   }, [params, accessToken])
 
-  return accessToken ? <Profile/> : <Login/>
+  
+
+  return (
+    <div className="flex flex-col bg-black h-screen">
+      {accessToken ? <Profile token={accessToken}/> : <Login/>}
+    </div>
+    
+    )
 }
 
 export default App;
