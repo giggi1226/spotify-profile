@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import { useParams, useSearchParams } from 'react-router-dom'
+import React, {useEffect, useState} from 'react';
+import { useSearchParams } from 'react-router-dom'
 import Login from './pages/Login/Login';
 import Profile from './pages/Profile/Profile';
 import './App.css';
