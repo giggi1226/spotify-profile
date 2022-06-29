@@ -21,8 +21,6 @@ export default async function handler(req, res) {
   var state = req.query.state || null;
   var storedState = req.headers.cookie.split("=")[1] || null
 
-  console.log(storedState)
-  console.log(state)
 
   if (state === null || state !== storedState) {
     const params = new URLSearchParams({
