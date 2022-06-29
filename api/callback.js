@@ -55,7 +55,7 @@ export default async function handler(req, res) {
           access_token: access_token,
           refresh_token: refresh_token
         });
-        res.redirect(`${BASE}/?${params.toString()}`);
+        res.redirect(`/?${params.toString()}`);
       } else {
         const params = new URLSearchParams({
           error: 'invalid_token'
