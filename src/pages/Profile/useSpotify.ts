@@ -16,5 +16,3 @@ const useSpotify = (token:string):{displayName: string, images: any} => {
 }
 
 export { useSpotify }
-
-// BQAis4RWWRa4WJnhmFCWSwIXOWwUL2T9DXHOfpluu2-W4DVxI5VUTyzDguSmAaGWYxBTau6Yfx-heDqzl4SxhxltZQTCUUSzHdRzPJBI4xz1-4jPQDfo7huQT4JwYbhTsfp5HMvwUhG517SJQYg3x-4U4w3_oIrp8btsBfA4p_MycukJpVyYHxKTSuqCJ6VvrQ
