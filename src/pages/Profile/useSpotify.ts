@@ -6,8 +6,6 @@ const useSpotify = (token:string):{displayName: string, images: any} => {
 
   const { data, error } = useSwr(['https://api.spotify.com/v1/me', token], fetcher)
 
-  console.log(data)
-
 
   return { 
     displayName: data ? data.display_name : '',

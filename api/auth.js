@@ -1,13 +1,12 @@
 require('dotenv').config();
 
 const {
-  CLIENT_ID, 
-  CLIENT_SECRET,
+  CLIENT_ID,
   REDIRECT_URI
 } = process.env
 
 
-const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
+// const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 var stateKey = 'spotify_auth_state';
 
 /**

@@ -4,23 +4,18 @@ const {
   CLIENT_ID, 
   CLIENT_SECRET,
   REDIRECT_URI,
-  BASE
 } = process.env
 
 var request = require('request');
 
-
-// const REDIRECT_URI = 'http://localhost:3000/api/callback'
 const basic = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')
 var stateKey = 'spotify_auth_state';
-// var front_end = "http://localhost:3000";
 
 export default async function handler(req, res) {
 
   var code = req.query.code || null;
   var state = req.query.state || null;
   var storedState = req.headers.cookie.split("=")[1] || null
-//
 
   if (state === null || state !== storedState) {
     const params = new URLSearchParams({
@@ -28,7 +23,7 @@ export default async function handler(req, res) {
     })
     res.redirect(`/#${params.toString()}`);
   } else {
-    // res.clearCookie(stateKey);
+
     var authOptions = {
       url: 'https://accounts.spotify.com/api/token',
       form: {
