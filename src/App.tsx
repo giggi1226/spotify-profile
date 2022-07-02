@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [params] = useSearchParams()
-  const [accessToken, setAccessToken] = useState<string>('')
+  const [accessToken, setAccessToken] = useState<string>(localStorage.getItem('access_token') || '')
 
   useEffect(() => {
     if(!accessToken && params.get('access_token')){
