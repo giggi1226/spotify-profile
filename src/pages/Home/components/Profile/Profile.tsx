@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router";
 import { useSpotify } from './useSpotify'
+import TopArtists from "../TopArtists/TopArtists";
 
 const Profile = () => {
   const {displayName, images} = useSpotify(localStorage.getItem('access_token') || '')
@@ -14,7 +15,7 @@ const Profile = () => {
   }, [])
 
   return images && displayName && (
-    <div className="flex flex-col items-center min-h-[50%] justify-between ">
+    <div>
       <h1 className="text-white text-5xl bold p-[5vh]">Hello, {displayName ? displayName : 'world'}</h1>
       {<img style={{borderRadius: "50%", width: 250,
           height: 250,}}src={images && images[0] ? images[0].url : 'world'}/>}

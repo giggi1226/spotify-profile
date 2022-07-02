@@ -34,7 +34,7 @@ export default async function handler(req, res) {
   const query = new URLSearchParams({
     response_type: 'code',
     client_id: CLIENT_ID,
-    scope: 'user-read-private user-read-email',
+    scope: 'user-read-private user-read-email user-top-read',
     redirect_uri: REDIRECT_URI,
     state: state
   })

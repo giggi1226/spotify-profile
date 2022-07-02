@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link, useSearchParams } from 'react-router-dom'
 import Login from './pages/Login/Login';
-import Profile from './pages/Profile/Profile';
+import Home from './pages/Home/Home';
 import './App.css';
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
   }, [accessToken])
 
   return (
-    <div className="flex flex-col bg-black h-screen">
-      {accessToken ? <Profile /> : <Login/>}
+    <div className="flex flex-col bg-black h-full min-h-screen">
+      {accessToken ? <Home /> : <Login/>}
     </div>
     
     )
