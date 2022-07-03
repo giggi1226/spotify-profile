@@ -30,7 +30,7 @@ const TopArtists = () => {
 
   // if(data) console.log(bla(data.items))
 
-  return data && (
+  return data && data.items && (
     <div className="pt-[50px]">
       <h2 className="text-white font-bold text-2xl pb-[25px]">Top Artist</h2>
       <div className="flex h-[40px] space-x-4 items-center">
@@ -45,7 +45,7 @@ const TopArtists = () => {
         </button>
       </div>
       
-      <ol className="flex flex-col items-start min-h-[50%] justify-between ">
+      <ol className="flex flex-col items-start justify-between ">
         {data.items.map((artist:any) => (
           <button onClick={onClickArtist(artist)} className="mt-2 mb-2">
             <li key={artist.name} className="flex items-center space-x-2">

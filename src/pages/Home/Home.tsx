@@ -5,7 +5,7 @@ import Profile from "./components/Profile/Profile";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center min-h-[50%] justify-between ">
+    <div className="flex flex-col items-center justify-between h-screen overflow-scroll">
       <Profile />
       <TopArtists/>
     </div>

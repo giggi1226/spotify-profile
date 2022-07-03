@@ -18,7 +18,7 @@ function App() {
   }, [accessToken])
 
   return (
-    <div className="flex flex-col bg-black h-full min-h-screen">
+    <div className="flex flex-col flex-grow bg-black">
       {accessToken ? <Home /> : <Login/>}
     </div>
     
