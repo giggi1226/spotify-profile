@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
-const Nav = () => (
-  <div className="flex flex-col justify-center w-[200px] items-center h-screen">
-    <Link to='/' className="text-white">Home</Link>
-    <Link to='/' className="text-white">Podcasts</Link>
-  </div>
-    
-)
+const Nav = () => {
+  const {pathname} = useLocation()
+  // console.log(location.pathname)
+
+  return (
+    <div className="flex flex-col bg-white bg-opacity-5 justify-center w-[200px] items-center h-screen">
+      <Link to='/' className={`flex border-l-green text-white hover:border-l-[3px] w-full justify-center ${pathname === '/' ? 'bg-black border-l-[3px]': ''}`}>Home</Link>
+      <Link to='/podcasts' className={`flex border-l-green text-white hover:border-l-[3px] w-full justify-center ${pathname === '/podcasts' ? 'bg-black border-l-[3px]': ''}`}>Podcasts</Link>
+    </div>
+  )
+}
 
 export default Nav

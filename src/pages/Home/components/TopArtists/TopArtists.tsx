@@ -11,15 +11,12 @@ const TopArtists = () => {
   } = useTopArtist(requestParams)
 
   const onClickArtist = useCallback((artist:any) => (e: any) => {
-    console.log(artist)
     navigate(`/topArtists/${artist.id}`)
   }, [navigate])
 
   const onClickSixMonths = useCallback((e:any) => {
     setQueryParams({time_range: e.target.value})
     navigate('/')
-    // e.stopPropagation();
-    // console.log(e)
   }, [navigate])
 
   const bla = compose(
@@ -27,8 +24,6 @@ const TopArtists = () => {
     flatMap((genre:any) => genre),
     map((artist:any) => artist.genres)
   )
-
-  // if(data) console.log(bla(data.items))
 
   return data && data.items && (
     <div className="pt-[50px]">

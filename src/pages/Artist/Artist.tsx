@@ -1,5 +1,7 @@
 import { useParams } from "react-router";
-import { useArtist } from "./useArtist";
+import { useArtist, useTracks } from "./useArtist";
+
+import {filter, includes, uniqBy} from 'lodash/fp'
 
 type Params = {
   id: string
@@ -9,6 +11,7 @@ const Artist = () => {
 
   const { id } = useParams<Params>()
   const { data } = useArtist(id || '')
+  const { savedTracks } = useTracks(data ? data : {})
 
   return data && data.images && (
     <div className="flex bg-black flex-grow flex-col items-center justify-center">
@@ -27,9 +30,9 @@ const Artist = () => {
         {data.genres.map((genre:string, i:number) => {
           if(i === data.genres.length - 1) return <span className="pr-2">{genre}</span>
           else return  <span className="pr-2">{genre},</span>
-          
         })}
       </div>
+      {savedTracks.map((track:any) => <span className="text-white">{track.name}, </span>)}
       
       
     </div>
