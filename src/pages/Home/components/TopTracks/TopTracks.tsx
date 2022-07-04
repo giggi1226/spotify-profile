@@ -10,11 +10,10 @@ const TopTracks = () => {
 
   const onClickRange = useCallback((e:any) => {
     setQueryParams({time_range: e.target.value})
-    // navigate('/')
   }, [])
 
   return data && (
-    <TopSection header="Top Tracks" data={data.items} type="track" onClickRange={onClickRange}/>
+    <TopSection header="Top Tracks" data={data.items} type="track" onClickRange={onClickRange} value={requestParams.time_range}/>
   )
 };
 

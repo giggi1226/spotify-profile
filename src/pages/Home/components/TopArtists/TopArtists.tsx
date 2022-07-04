@@ -17,7 +17,7 @@ const TopArtists = () => {
   }, [navigate])
 
   return data && (
-    <TopSection header="Top Artist" data={data.items} type="artist" onClickRange={onClickRange}/>
+    <TopSection header="Top Artist" data={data.items} type="artist" onClickRange={onClickRange} value={requestParams.time_range}/>
   )
 };
 

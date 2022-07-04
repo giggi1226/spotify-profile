@@ -5,13 +5,12 @@ type Section = {
   header: string,
   type: string,
   data:any,
-  onClickRange: any
+  onClickRange: any,
+  value: string
 }
 
-const TopSection = ({header, type, data, onClickRange}:Section) => {
+const TopSection = ({header, type, data, onClickRange, value}:Section) => {
   const navigate = useNavigate()
-  
-  // const [requestParams, setQueryParams] = useState({time_range: 'long_term'});
 
   const onClickArtist = useCallback((artist:any) => (e: any) => {
     navigate(`/topArtists/${artist.id}`)
@@ -44,13 +43,13 @@ const TopSection = ({header, type, data, onClickRange}:Section) => {
     <div className="pt-[50px]">
       <h2 className="text-white font-bold text-2xl pb-[25px]">{header}</h2>
       <div className="flex h-[40px] space-x-4 items-center">
-        <button onClick={onClickRange} value="long_term" className="flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4">
+        <button onClick={onClickRange} value="long_term" className={`${value === 'long_term' ? 'text-green underline underline-offset-4' : ''} flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
           All Time
         </button>
-        <button onClick={onClickRange} value="medium_term" className="flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4">
+        <button onClick={onClickRange} value="medium_term" className={`${value === 'medium_term' ? 'text-green underline underline-offset-4' : ''} flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
           Last 6 Months
         </button>
-        <button onClick={onClickRange} value="short_term" className="flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4">
+        <button onClick={onClickRange} value="short_term" className={`${value === 'short_term' ? 'text-green underline underline-offset-4' : ''} flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
           Last Month
         </button>
       </div>
