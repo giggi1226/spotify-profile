@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { useTopArtist } from "./useTopArtist";
-import {compose, map, flatMap, countBy} from 'lodash/fp';
 import { useNavigate } from "react-router";
 import TopSection from "../../../../components/TopSection";
 

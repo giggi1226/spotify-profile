@@ -23,8 +23,12 @@ const TopSection = ({header, type, data, onClickRange, value}:Section) => {
   const Track = ({track}:{track:any}) => (
     <button onClick={onClickTrack(track)} className="mt-2 mb-2">
       <li key={track.name} className="flex items-center space-x-2">
-        <img src={track.album.images[track.album.images.length - 1].url} className="rounded-full h-[65px] w-[65px]"/>
-        <span className="text-white">{track.name}</span>
+        <img src={track.album.images[track.album.images.length - 1].url} className="h-[65px] w-[65px]"/>
+        <div className="flex flex-col items-start p-2">
+          <span className="text-white">{track.name}</span>
+          {track.artists.map((artist:any) => <span className="text-white opacity-60 font-light">{artist.name}</span>)}
+          <span className="text-white font-bold opacity-80">{track.album.name}</span>
+        </div>
       </li>
     </button>
   )
