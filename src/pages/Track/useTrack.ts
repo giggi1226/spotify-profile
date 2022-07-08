@@ -9,7 +9,7 @@ const useTrack = (id:string) => {
   const { data:trackFeatures, error: trackFeaturesError } = useSwr([`https://api.spotify.com/v1/audio-features/${id}`, localStorage.getItem('access_token')], fetcher, {revalidateOnFocus: false})
   /*
   trackData: name, artists, album, popularity
-  audio features: dance, acoustic, energy, instrument, duration, liveness, loudness, speechiness, valence
+  audio features:  duration, loudness
   */
 //  useEffect(() => {
 
@@ -19,7 +19,11 @@ const useTrack = (id:string) => {
   //   name: data.name
   // }
   
-  return {trackData, trackFeatures}
+  return {
+    trackData, 
+    trackFeatures,
+    isLoading: !trackData || !trackFeatures
+  }
 }
 
 export { useTrack }
