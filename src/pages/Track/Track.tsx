@@ -124,10 +124,10 @@ const Track = () => {
             </div>
           
             <div className="flex flex-col justify-around">
-              <h3 className="text-white text-3xl">Loudness</h3>
-              <h2 className="text-white text-3xl">{trackFeatures.loudness} db</h2>
-              <h3 className="text-white text-3xl">Duration</h3>
-              <h2 className="text-white text-3xl">{trackFeatures.duration_ms}</h2>
+              <h3 className="text-green text-3xl font-bold">Loudness</h3>
+              <h2 className="text-white text-2xl">{trackFeatures.loudness} db</h2>
+              <h3 className="text-green text-3xl font-bold">Duration</h3>
+              <h2 className="text-white text-2xl">{trackFeatures.duration_ms}</h2>
             </div>
           </>
         )}
