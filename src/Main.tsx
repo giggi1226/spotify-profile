@@ -5,6 +5,7 @@ import './App.css';
 import Artist from './pages/Artist/Artist'
 import Nav from './components/Nav'
 import Track from './pages/Track/Track';
+import Podcasts from './pages/Podcasts/Podcasts';
 
 function Main() {
 
@@ -21,6 +22,7 @@ function Main() {
       <Routes>
         <Route path="/topTrack/:id" element={<Track />}/>
         <Route path="/topArtists/:id" element={<Artist />}/>
+        <Route path="/podcasts" element={<Podcasts />}/>
         <Route path="/" element={<App />}></Route>
       </Routes>
     </div>
