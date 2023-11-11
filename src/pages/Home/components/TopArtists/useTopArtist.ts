@@ -1,6 +1,6 @@
 // import { useNavigate } from 'react-router'
 import useSwr from 'swr'
-import { fetcher } from "../../../../utils/consts"
+import fetcher from "../../../../utils/consts"
 
 const useTopArtist = (requestParams:any) => {
   const { time_range } = requestParams
