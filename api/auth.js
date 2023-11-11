@@ -1,4 +1,4 @@
-require('dotenv').config();
+import 'dotenv/config'
 
 const {
   CLIENT_ID,
@@ -26,6 +26,7 @@ var stateKey = 'spotify_auth_state';
 
 export default async function handler(req, res) {
   var state = generateRandomString(16);
+  
   const cookieString = ""
   const stateCookie = `${stateKey}=${state}${cookieString}`;
 

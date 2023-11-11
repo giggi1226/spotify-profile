@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useNavigate } from "react-router";
 
 type Section = {
@@ -12,11 +12,11 @@ type Section = {
 const TopSection = ({header, type, data, onClickRange, value}:Section) => {
   const navigate = useNavigate()
 
-  const onClickArtist = useCallback((artist:any) => (e: any) => {
+  const onClickArtist = useCallback((artist:any) => () => {
     navigate(`/topArtists/${artist.id}`)
   }, [navigate])
 
-  const onClickTrack = useCallback((track:any) => (e: any) => {
+  const onClickTrack = useCallback((track:any) => () => {
     navigate(`/topTrack/${track.id}`)
   }, [navigate])
 
@@ -47,20 +47,20 @@ const TopSection = ({header, type, data, onClickRange, value}:Section) => {
     <div className="pt-[50px]">
       <h2 className="text-white font-bold text-2xl pb-[25px]">{header}</h2>
       <div className="flex h-[40px] space-x-4 items-center">
-        <button onClick={onClickRange} value="long_term" className={`${value === 'long_term' ? 'text-green underline underline-offset-4' : ''} flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
+        <button onClick={onClickRange} value="long_term" className={`${value === 'long_term' ? 'text-green underline underline-offset-4' : 'text-white'} flex min-w-[50px] h-[10px]  font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
           All Time
         </button>
-        <button onClick={onClickRange} value="medium_term" className={`${value === 'medium_term' ? 'text-green underline underline-offset-4' : ''} flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
+        <button onClick={onClickRange} value="medium_term" className={`${value === 'medium_term' ? 'text-green underline underline-offset-4' : 'text-white'} flex min-w-[50px] h-[10px] font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
           Last 6 Months
         </button>
-        <button onClick={onClickRange} value="short_term" className={`${value === 'short_term' ? 'text-green underline underline-offset-4' : ''} flex min-w-[50px] h-[10px] text-white font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
+        <button onClick={onClickRange} value="short_term" className={`${value === 'short_term' ? 'text-green underline underline-offset-4' : 'text-white'} flex min-w-[50px] h-[10px] font-bold rounded-xl text-sm font-sans tracking-widest items-center justify-center hover:text-green hover:underline hover:underline-offset-4`}>
           Last Month
         </button>
       </div>
       
       <ol className="flex flex-col items-start justify-between ">
-        {data.map((item:any) => {
-          return type === 'artist' ? <Artist artist={item}/> : <Track track={item}/>
+        {data.map((item:any, i:number) => {
+          return type === 'artist' ? <Artist artist={item} key={`artist-${i}`}/> : <Track track={item} key={`track-${i}`}/>
         })
         }
       </ol>
