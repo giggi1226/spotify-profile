@@ -66,26 +66,5 @@ export default async function handler(req, res) {
 
       res.redirect(`/?${queryParams}`);
     }
-
-
-    // request.post(authOptions, function(error, response, body) {
-    //   if (!error && response.statusCode === 200) {
-
-    //     var access_token = body.access_token,
-    //         refresh_token = body.refresh_token;
-
-    //     // we can also pass the token to the browser to make requests from there
-    //     const params = new URLSearchParams({
-    //       access_token: access_token,
-    //       refresh_token: refresh_token
-    //     });
-    //     res.redirect(`/?${params.toString()}`);
-    //   } else {
-    //     const params = new URLSearchParams({
-    //       error: 'invalid_token'
-    //     });
-    //     res.redirect('/?' + params.toString())
-    //   }
-    // });
   }
 }
