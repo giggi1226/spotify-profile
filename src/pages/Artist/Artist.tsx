@@ -1,7 +1,6 @@
 import { useParams } from "react-router";
 import { useArtist, useTracks } from "./useArtist";
 
-import {filter, includes, uniqBy} from 'lodash/fp'
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 
@@ -16,7 +15,7 @@ const Artist = () => {
   const { data } = useArtist(id || '')
   const { savedTracks } = useTracks(data ? data : {})
 
-  const onClickTrack = useCallback((track:any) => (e: any) => {
+  const onClickTrack = useCallback((track:any) => () => {
     navigate(`/topTrack/${track.id}`)
   }, [navigate])
 
@@ -48,7 +47,7 @@ const Artist = () => {
       <div className="flex flex-col items-center text-white font-bold text-xl">
         <span className="pr-2 pb-4">Genres </span>
         {data.genres.map((genre:string, i:number) => (
-           <span className="pr-2 text-green font-medium">{genre}</span>
+           <span className="pr-2 text-green font-medium" key={`genre-${i}`}>{genre}</span>
         ))}
       </div>
       <div className="flex flex-col items-center pt-8 w-full pr-4 pl-4">

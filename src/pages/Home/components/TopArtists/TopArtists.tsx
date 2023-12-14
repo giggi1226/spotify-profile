@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { useTopArtist } from "./useTopArtist";
 import { useNavigate } from "react-router";
 import TopSection from "../../../../components/TopSection";

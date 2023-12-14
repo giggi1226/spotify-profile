@@ -1,7 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useTopTracks } from "./useTopTracks";
-import {compose, map, flatMap, isEmpty} from 'lodash/fp';
-import { useNavigate } from "react-router";
 import TopSection from "../../../../components/TopSection";
 
 const TopTracks = () => {

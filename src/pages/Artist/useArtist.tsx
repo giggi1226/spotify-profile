@@ -4,7 +4,7 @@ import { fetcher } from "../../utils/consts"
 import { useEffect, useState } from "react"
 
 const useArtist = (id:string) => {
-  const { data, error } = useSwr([`https://api.spotify.com/v1/artists/${id}`, localStorage.getItem('access_token')], fetcher, {revalidateOnFocus: false})
+  const { data } = useSwr([`https://api.spotify.com/v1/artists/${id}`, localStorage.getItem('access_token')], fetcher, {revalidateOnFocus: false})
 
   return {data}
 }
@@ -15,7 +15,7 @@ const useTracks = (artist:any) => {
   const [total, setTotal] = useState(0)
 
   // fetch saved Tracks
-  const { data, error } = useSwr([`https://api.spotify.com/v1/me/tracks?limit=50&offset=${offset}`, localStorage.getItem('access_token')], fetcher, {revalidateOnFocus: false})
+  const { data } = useSwr([`https://api.spotify.com/v1/me/tracks?limit=50&offset=${offset}`, localStorage.getItem('access_token')], fetcher, {revalidateOnFocus: false})
 
   useEffect(() => {
     if(data && data.items && offset <= total){
